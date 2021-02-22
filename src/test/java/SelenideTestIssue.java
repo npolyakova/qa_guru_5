@@ -27,6 +27,6 @@ public class SelenideTestIssue {
         $(".header-search-input").setValue(repositoryName).submit();
         $(By.linkText(repositoryName)).click();
         $(withText(issues)).click();
-        $(withText(issueNumber)).should(Condition.exist);
+        $(withText(issueNumber)).should(Condition.visible);
     }
 }

@@ -19,12 +19,20 @@ public class LambdaTestIssue {
     public void testIssueSearch() {
         SelenideLogger.addListener("allure", new AllureSelenide());
 
-        step("Открываем главную страницу", () -> open(baseUrl));
-        step("Ищем репозиторий " + repositoryName, () -> $(".header-search-input").setValue(repositoryName).submit());
-        step("Переходим в репозиторий " + repositoryName, () -> $(By.linkText(repositoryName)).click());
-        step("Переходим в раздел " + issues, () -> $(withText(issues)).click());
+        step("Открываем главную страницу", () -> {
+            open(baseUrl);
+        });
+        step("Ищем репозиторий " + repositoryName, () -> {
+            $(".header-search-input").setValue(repositoryName).submit();
+        });
+        step("Переходим в репозиторий " + repositoryName, () -> {
+            $(By.linkText(repositoryName)).click();
+        });
+        step("Переходим в раздел " + issues, () -> {
+            $(withText(issues)).click();
+        });
         step("Проверяем что Issue с номером " + issueNumber + " существует", () -> {
-            $(withText(issueNumber)).should(Condition.exist);
+            $(withText(issueNumber)).should(Condition.visible);
         });
     }
 }

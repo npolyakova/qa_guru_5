@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Test;
+import steps.BaseSteps;
 
-public class StepsTestIssue extends BaseSteps{
+public class StepsTestIssue extends BaseSteps {
 
     private static final String repository = "eroshenkoam/allure-example";
     private static final String issueNumber = "#68";
